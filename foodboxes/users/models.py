@@ -6,4 +6,4 @@ class User(AbstractUser):
 
     middle_name = models.CharField(max_length=15)
     phone = models.CharField(max_length=11)
-    address = models.CharField(max_length=30)
+    address = models.CharField(max_length=70)

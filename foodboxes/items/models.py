@@ -7,6 +7,5 @@ class Items(models.Model):
     description = models.TextField()
     image = models.ImageField()
     weight = models.PositiveSmallIntegerField()
-    price = models.DecimalField(decimal_places=2, max_digits=5)
-
+    price = models.DecimalField(decimal_places=2, max_digits=6)
 

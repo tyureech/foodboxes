@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from items.views import function_based
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('based/<int:id>', function_based, name='function-based'),
+    # path('api/v1', None, name='api')
 ]

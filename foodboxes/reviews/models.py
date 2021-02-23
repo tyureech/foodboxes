@@ -1,12 +1,12 @@
 from django.db import models
 from django.conf import settings
-
+import datetime
 
 class Reviews(models.Model):
 
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     text = models.TextField()
-    created_at = models.DateTimeField()
-    published_at = models.DateTimeField()
+    created_at = models.DateTimeField(datetime.datetime.now())
+    published_at = models.DateTimeField(datetime.datetime.now())
     status = models.CharField(max_length=7)
 
