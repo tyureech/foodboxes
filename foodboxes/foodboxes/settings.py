@@ -25,7 +25,7 @@ SECRET_KEY = 'm%pjv*u(-ekyzoq74&qx+iwlt8dt(g*=vd+4t88()ytxgx64i8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'items',
     'reviews',
     'users',
-    'save_data',
+    'commands_data',
 ]
 
 MIDDLEWARE = [

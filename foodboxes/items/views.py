@@ -1,23 +1,21 @@
-from django.shortcuts import render
-from django.http import Http404
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 
-import requests
-
-from items.models import Items
+from items.models import Item
 
 
 @api_view(http_method_names=['GET'])
 def function_based(request, id):
-    response = requests.get('https://raw.githubusercontent.com'
-                 '/stepik-a-w/drf-project-boxes/master'
-                 '/foodboxes.json').json()
-    try:
-        return Response(response[id - 1])
-    except IndexError:
+    item = Item.objects.filter(id=id)
+    if item:
+        return Response({
+            'id': item[0].id,
+            'title': item[0].title,
+            'description': item[0].description,
+            'image': str(item[0].image),
+            'weight': item[0].weight,
+            'price': item[0].price,
+        })
+    else:
         return Response(status=status.HTTP_404_NOT_FOUND)
-
-
-
